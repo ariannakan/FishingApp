@@ -1,0 +1,5 @@
+####### Requirements #########
+requests
+json
+pandas  #includes numpy
+urllib3 #to disable warning
