@@ -1,0 +1,97 @@
+
+
+For network images:
+you have to manually set the dimensions for network images
+      <Image
+        blurRadius={10}         //makes the image blurry
+        fadeDuration={1000}     //fades in on load
+        source={{
+          width: 200,
+          height: 300,
+          uri: "https://picsum.photos/200/300",
+        }}
+      />
+
+
+For static images:
+don't need to manually set dimensions because the require function reads the metadata about our images
+      <Image source={require("./assets/icon.png")} />
+
+
+Button:
+ctrl-space = lets you view the properties of the object
+      <Button
+        color="orange"
+        title="Click Me"
+        onPress={() =>
+          Alert.alert("My title", "My message", [
+            { text: "Yes", onPress: () => console.log("Yes") },
+            { text: "No", onPress: () => console.log("No") },
+          ])
+        }
+      ></Button>
+
+
+Styles:
+We can create an array of styles, in which the object on the right overwrites the properties of the object on the left
+      <SafeAreaView style={[styles.container, containerStyle]}>
+
+      const containerStyle = { backgroundColor: "orange" };
+
+      const styles = StyleSheet.create({
+        container: {
+          flex: 1,
+          backgroundColor: "#fff",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      });
+
+justifyContent: "center", "flex-end", "flex-start", "space-around" (evenly spaced, but first and last item have less space from edge), 
+    "space-between" (first and last are flush with edges and remaining space is evenly spaced), "space-evenly" (all space is evenly distributed)
+
+
+    container: {
+    backgroundColor: "#fff",
+    flex: 1,
+    flexDirection: "row", // main axis
+    justifyContent: "center", // align items along main axis
+    alignItems: "center", // align items along secondary axis
+    paddingTop: Platform.OS === "android" ? 20 : 0,
+  },
+
+
+  <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={require("../assets/fishing.png")} />
+        <Text>Where's the fish?</Text>
+      </View>
+      <View style={styles.loginButton}></View>
+      <View style={styles.registerButton}></View>
+
+
+      const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignSelf: "center",
+  },
+  loginButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "#0F3B5F",
+  },
+  logo: {
+    width: 100,
+    height: 100,
+  },
+  logoContainer: {
+    position: "absolute",
+    top: 70,
+    alignItems: "center",
+  },
+  registerButton: {
+    width: "100%",
+    height: 70,
+    backgroundColor: "lightgrey",
+  },
+});
